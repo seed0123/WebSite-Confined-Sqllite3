@@ -13,6 +13,7 @@ function login(event) {
     if (username === validUsername && password === validPassword) {
         // Login successful, set session storage and redirect to main page (index.html in this example)
         sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.removeItem('isLoggedOut');
         window.location.href = 'index.html';
     } else {
         // Login failed, show an error message (using SweetAlert2 for better UI)
@@ -28,8 +29,9 @@ function login(event) {
 // Function to check if the user is logged in (to be called from other pages)
 function checkLogin() {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
-    if (!isLoggedIn) {
-        // Redirect to login page if not logged in
+    const isLoggedOut = sessionStorage.getItem('isLoggedOut') === 'true';
+    if (!isLoggedIn || isLoggedOut) {
+        // Redirect to login page if not logged in or explicitly logged out
         window.location.href = 'login.html';
     }
 }
@@ -37,7 +39,8 @@ function checkLogin() {
 // Function to logout
 function logout() {
     // Clear session storage (or cookies, depending on your setup)
-    sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.setItem('isLoggedIn', 'false');
+    sessionStorage.setItem('isLoggedOut', 'true');
 
     // Redirect to login page
     window.location.href = 'login.html';
@@ -54,8 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Listen for popstate event to handle back button
 window.addEventListener('popstate', function(event) {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
-    if (!isLoggedIn) {
-        // Redirect to login page if not logged in
+    const isLoggedOut = sessionStorage.getItem('isLoggedOut') === 'true';
+    if (!isLoggedIn || isLoggedOut) {
+        // Redirect to login page if not logged in or explicitly logged out
         window.location.href = 'login.html';
     }
 });
