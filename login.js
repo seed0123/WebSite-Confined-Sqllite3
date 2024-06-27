@@ -14,6 +14,9 @@ function login(event) {
         // Login successful, set session storage and redirect to main page (index.html in this example)
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.removeItem('isLoggedOut');
+        
+        // Push new state to the history
+        history.pushState(null, null, 'index.html');
         window.location.href = 'index.html';
     } else {
         // Login failed, show an error message (using SweetAlert2 for better UI)
@@ -42,7 +45,8 @@ function logout() {
     sessionStorage.setItem('isLoggedIn', 'false');
     sessionStorage.setItem('isLoggedOut', 'true');
 
-    // Redirect to login page
+    // Replace state to prevent back navigation to the protected page
+    history.replaceState(null, null, 'login.html');
     window.location.href = 'login.html';
 }
 
