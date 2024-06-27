@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Permit Activities</h1>
+        <button onclick="logout()">Logout</button>
+    </header>
+    <main>
+        <div class="permit-list">
+            <div class="permit">
+                <input type="text" id="kilns-input" placeholder="Enter your work-place">
+                <button onclick="renamePermit('kilns-input', 'kilns')">Rename</button>
+                <a id="kilns-link" href="permits.html?permit=kilns">Work-place-1</a>
+            </div>
+            <div class="permit">
+                <input type="text" id="preheaters-input" placeholder="Enter your work-place">
+                <button onclick="renamePermit('preheaters-input', 'preheaters')">Rename</button>
+                <a id="preheaters-link" href="permits.html?permit=preheaters">Work-place-2</a>
+            </div>
+            <div class="permit">
+                <input type="text" id="crushers-input" placeholder="Enter your work-place">
+                <button onclick="renamePermit('crushers-input', 'crushers')">Rename</button>
+                <a id="crushers-link" href="permits.html?permit=crushers">Work-place-3</a>
+            </div>
+        </div>
+    </main>
+    
+    <script src="login.js"></script>
+    <script src="rename.js"></script>
+    
+</body>
+</html>

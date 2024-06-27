@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Device Data</title>
+  <link rel="stylesheet" href="permit.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1 id="permitTitle">Permit Devices</h1>
+    </div>
+    <div class="header-right">
+      <form id="deviceForm">
+        <label>Device 1: <input type="text" name="device1" placeholder="Enter device name"></label><br>
+        <label>Device 2: <input type="text" name="device2" placeholder="Enter device name"></label><br>
+        <input type="submit" value="Save Names">
+      </form>
+      <a href="index.html" class="back-link">Back to Home</a>
+
+    </div>
+  </header>
+  <main id="deviceContainer">
+    <!-- Devices will be dynamically loaded here -->
+  </main>
+  <div class="chart-container">
+    
+    <canvas id="movementChart"></canvas>
+  </div>
+  <p id="lastUpdated" class="last-updated"></p>
+
+  <script src="scripts.js"></script>
+  <script src="login.js"></script>
+  <!-- <script src="rename.js"></script> -->
+
+</body>
+</html>
