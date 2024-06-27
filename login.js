@@ -50,3 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
         checkLogin(); // Only check login if it's not the login page
     }
 });
+
+// Listen for popstate event to handle back button
+window.addEventListener('popstate', function(event) {
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+    if (!isLoggedIn) {
+        // Redirect to login page if not logged in
+        window.location.href = 'login.html';
+    }
+});
