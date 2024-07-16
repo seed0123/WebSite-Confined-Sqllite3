@@ -86,7 +86,7 @@ function initializeScatterPlot() {
 async function fetchAndRenderDevices(permit) {
     const channels = {
         kilns: ['2573701', '2581068'],
-        preheaters: ['2581070', '2581071'],
+        preheaters: ['2599736', '2581071'],
         crushers: ['2581072', '2581073']
     };
 
@@ -115,7 +115,7 @@ async function fetchAndRenderDevices(permit) {
                 let powerOffStatus = false;
                 if (lastKnownTemperature[originalDeviceName] === temperature) {
                     consecutiveSameTemperatureCount[originalDeviceName] = consecutiveSameTemperatureCount[originalDeviceName] ? consecutiveSameTemperatureCount[originalDeviceName] + 1 : 1;
-                    if (consecutiveSameTemperatureCount[originalDeviceName] >= 3) {
+                    if (consecutiveSameTemperatureCount[originalDeviceName] >= 2) {
                         powerOffStatus = true;
                     }
                 } else {
