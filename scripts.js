@@ -115,7 +115,7 @@ async function fetchAndRenderDevices(permit) {
                 let powerOffStatus = false;
                 if (lastKnownTemperature[originalDeviceName] === temperature) {
                     consecutiveSameTemperatureCount[originalDeviceName] = consecutiveSameTemperatureCount[originalDeviceName] ? consecutiveSameTemperatureCount[originalDeviceName] + 1 : 1;
-                    if (consecutiveSameTemperatureCount[originalDeviceName] >= 2) {
+                    if (consecutiveSameTemperatureCount[originalDeviceName] >= 3) {
                         powerOffStatus = true;
                     }
                 } else {
